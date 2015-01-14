@@ -1,0 +1,21 @@
+{
+  "name": "coordinator",
+  "version": "0.0.1",
+  "description": "Coordinator for signaling servers",
+  "main": "index.js",
+  "author": "Andreas Streichardt <andreas.streichardt@gmail.com>",
+  "license": "unlicense.org",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "bunyan": "^1.2.3",
+    "express": "^4.10.7",
+    "redis": "^0.12.1",
+    "scrypt": "^3.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "redis-mock": "^0.4.0",
+    "request": "^2.51.0",
+    "supertest": "^0.15.0"
+  }
+}
