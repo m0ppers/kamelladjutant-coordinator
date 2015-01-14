@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Andreas Streichardt <andreas.streichardt@gmail.com>",
   "license": "unlicense.org",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "body-parser": "^1.10.1",
     "bunyan": "^1.2.3",
