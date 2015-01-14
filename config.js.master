@@ -6,5 +6,6 @@ config.redis.port = 6379;
 config.redis.host = "127.0.0.1";
 
 config.signalingServers = ["ws://127.0.0.1"];
+config.allowOrigin = undefined;
 
 module.exports = config;
