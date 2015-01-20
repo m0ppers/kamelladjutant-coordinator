@@ -15,13 +15,13 @@ describe("Request sanitizing test", function() {
     });
     it("should not accept raw form data", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Content-Type", "application/x-www-form-urlencoded")
             .expect(400, done)
     });
     it("should accept valid documents", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": "manni", "roomname": "mannis-dark-room"})
@@ -29,7 +29,7 @@ describe("Request sanitizing test", function() {
     });
     it("should reject non alphanum room names", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": "manni", "roomname": "mannis dark-room"})
@@ -37,7 +37,7 @@ describe("Request sanitizing test", function() {
     });
     it("should reject requests not containing any roomname", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": "manni", "roomnameas": "mannis-dark-room"})
@@ -45,7 +45,7 @@ describe("Request sanitizing test", function() {
     });
     it("should reject requests not containing any username", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"aausername": "manni", "roomname": "mannis-dark-room"})
@@ -53,7 +53,7 @@ describe("Request sanitizing test", function() {
     });
     it("should reject non string room names", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": "manni", "roomname": 1234})
@@ -61,7 +61,7 @@ describe("Request sanitizing test", function() {
     });
     it("should reject non string user names", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": 1234, "roomname": "1234"})
@@ -69,13 +69,13 @@ describe("Request sanitizing test", function() {
     });
     it("should reject conflicting roomnames", function(done) {
         request(app)
-            .post("/create-room")
+            .post("/rooms")
             .set("Accept", "application/json")
             .set("Content-Type", "application/json")
             .send({"username": "12345", "roomname": "12345"})
             .expect(201, function() {
                 request(app)
-                    .post("/create-room")
+                    .post("/rooms")
                     .set("Accept", "application/json")
                     .set("Content-Type", "application/json")
                     .send({"username": "12345", "roomname": "12345"})
