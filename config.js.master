@@ -4,6 +4,7 @@ config.port  = 3000;
 config.redis = {};
 config.redis.port = 6379;
 config.redis.host = "127.0.0.1";
+config.redis.socket = undefined;
 
 config.signalingServers = ["ws://127.0.0.1"];
 config.allowOrigin = undefined;

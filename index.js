@@ -25,7 +25,6 @@ redisClient.on("ready", function() {
         var host = server.address().address
         var port = server.address().port
         
-        redisClient.set("wursti", "warsti");
         log.info('Kamelladjutant listening at http://%s:%s', host, port)
     });
 });
