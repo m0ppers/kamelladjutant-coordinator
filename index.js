@@ -33,7 +33,9 @@ redisClient.on("ready", function() {
         var host = server.address().address
         var port = server.address().port
         
-        log.info('Kamelladjutant listening at http://%s:%s', host, port)
+        log.info('Kamelladjutant listening at http://%s:%s', host, port);
+        log.info('Registered signaling servers: ', config.signalingServers);
+        log.info('Allowed origins: ', config.allowOrigin);
     });
 });
 
