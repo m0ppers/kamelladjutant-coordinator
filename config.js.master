@@ -1,5 +1,5 @@
 var config = {};
-config.port = process.env.PORT;
+config.port = process.env.COORDINATOR_PORT;
 
 config.redis = {};
 config.redis.port = process.env.REDIS_PORT;
